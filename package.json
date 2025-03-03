@@ -1,0 +1,27 @@
+{
+  "name": "com.yourdomain.leaderboardsdk",
+  "version": "1.0.0",
+  "displayName": "Leaderboard SDK",
+  "description": "A leaderboard SDK for Unity that connects to a Node.js server with SQLite database",
+  "unity": "2019.4",
+  "keywords": [
+    "leaderboard",
+    "highscore",
+    "sdk",
+    "api"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://yourdomain.com"
+  },
+  "dependencies": {
+  },
+  "samples": [
+    {
+      "displayName": "Leaderboard Example",
+      "description": "Contains an example implementation of the Leaderboard SDK",
+      "path": "Samples~/Example"
+    }
+  ]
+}
