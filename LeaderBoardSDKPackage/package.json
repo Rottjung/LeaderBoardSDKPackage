@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "Leaderboard SDK",
   "description": "A leaderboard SDK for Unity that connects to a Node.js server with SQLite database",
-  "unity": "2019.4",
+  "unity": "2023.2",
   "keywords": [
     "leaderboard",
     "highscore",
@@ -11,7 +11,7 @@
     "api"
   ],
   "author": {
-    "name": "Your Name",
+    "name": "Jethro Volders",
     "email": "prettybadgamesstudio@gmail.com",
     "url": "https://PBG.com"
   },
