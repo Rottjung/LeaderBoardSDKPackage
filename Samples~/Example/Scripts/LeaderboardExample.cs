@@ -12,10 +12,14 @@ public class LeaderboardExample : MonoBehaviour
 {
     [SerializeField] private string serverUrl = "http://localhost:3000";
     [SerializeField] private int leaderboardId = 1;
+    [SerializeField] private string leaderboardName;
     [SerializeField] private TMP_InputField playerNameInput;
     [SerializeField] private TMP_InputField scoreInput;
+    [SerializeField] private TMP_InputField leaderboardIDInput;
+    [SerializeField] private TMP_InputField leaderboardNameInput;
     [SerializeField] private Button submitButton;
-    [SerializeField] private Button refreshButton;
+    [SerializeField] private Button retrieveButton;
+    [SerializeField] private Button createButton;
     [SerializeField] private Transform leaderboardContainer;
     [SerializeField] private GameObject leaderboardEntryPrefab;
 
@@ -41,16 +45,34 @@ public class LeaderboardExample : MonoBehaviour
         
         // Set up button events
         submitButton.onClick.AddListener(SubmitScore);
-        refreshButton.onClick.AddListener(RefreshLeaderboard);
+        retrieveButton.onClick.AddListener(RefreshLeaderboard);
+        createButton.onClick.AddListener(CreateLeaderboard);
+        leaderboardIDInput.onEndEdit.AddListener(SetID);
+        leaderboardNameInput.onEndEdit.AddListener(SetName);
 
         CheckForLeaderboard();
         // Load leaderboard on start
         RefreshLeaderboard();
     }
-    
+
+    private void SetName(string name)
+    {
+        leaderboardName = name;
+    }
+
+    private void SetID(string id)
+    {
+        leaderboardId = Int32.Parse(id);
+    }
+
+    private void CreateLeaderboard()
+    {
+        CheckForLeaderboard();
+    }
+
     void CheckForLeaderboard()
     {
-        StartCoroutine(leaderboardManager.CreateOrGetLeaderboard(leaderboardId,
+        StartCoroutine(leaderboardManager.CreateOrGetLeaderboard(leaderboardId, leaderboardName,
             leaderboard => {
                 Debug.Log($"Leaderboard loaded: {leaderboard.Name}");
 

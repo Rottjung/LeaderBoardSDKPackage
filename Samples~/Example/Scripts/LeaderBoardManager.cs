@@ -85,9 +85,9 @@ namespace LeaderboardSDK
             }
         }
 
-        public IEnumerator CreateOrGetLeaderboard(int leaderboardId, Action<Leaderboard> callback, Action<string> errorCallback)
+        public IEnumerator CreateOrGetLeaderboard(int leaderboardId, string leaderboardName, Action<Leaderboard> callback, Action<string> errorCallback)
         {
-            Task<Leaderboard> task = _client.CreateOrGetLeaderboard(leaderboardId);
+            Task<Leaderboard> task = _client.CreateOrGetLeaderboard(leaderboardId, leaderboardName);
 
             while (!task.IsCompleted)
                 yield return null;
